@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    
+<title>js 的浏览器兼容 - JIE&#39;S BLOG</title>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+  <meta name="description" content="记录成长，分享生活与技术的点滴"/>
+
+
+
+  <meta name="keywords" content="jie的技术博客" />
+
+
+
+  <meta name="baidu-site-verification" content="u8dgxVVR7o" />
+
+
+
+<meta name="theme-color" content="#f75357" />
+<meta name="msapplication-navbutton-color" content="#f75357">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f75357">
+
+
+
+
+  <link rel="shortcut icon" href="/img/js.png">
+
+
+<link rel="alternate" type="application/atom+xml" title="JIE&#39;S BLOG" href="/atom.xml">
+
+<meta name="description" content="js的兼容总结 getElementsByClassNamegetElementsByClassName()方法在几个重要的浏览器中支持的最低版本:    浏览器 最低版本     谷歌 4.0   IE 9.0   火狐 3.0    12345678910111213141516//兼容写法function getClassName(name)&amp;#123;    if(!name) retur">
+<meta name="keywords" content="js兼容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js 的浏览器兼容">
+<meta property="og:url" content="https://blog.h5per.com/2017/07/27/js-hack/index.html">
+<meta property="og:site_name" content="JIE&#39;S BLOG">
+<meta property="og:description" content="js的兼容总结 getElementsByClassNamegetElementsByClassName()方法在几个重要的浏览器中支持的最低版本:    浏览器 最低版本     谷歌 4.0   IE 9.0   火狐 3.0    12345678910111213141516//兼容写法function getClassName(name)&amp;#123;    if(!name) retur">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-13T08:11:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js 的浏览器兼容">
+<meta name="twitter:description" content="js的兼容总结 getElementsByClassNamegetElementsByClassName()方法在几个重要的浏览器中支持的最低版本:    浏览器 最低版本     谷歌 4.0   IE 9.0   火狐 3.0    12345678910111213141516//兼容写法function getClassName(name)&amp;#123;    if(!name) retur">
+
+<link rel="stylesheet" href="/css/font-awesome.css?t=1502612130008">
+<link rel="stylesheet" href="/css/style.css?t=1502612130008">
+
+
+<script id="google_analytics">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-103011725-1', 'auto');
+      ga('send', 'pageview');
+</script>
+
+
+
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3a2513e3b95bfa8932590de2c4476f65";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+  </head>
+  <body>
+    <header class="header">
+  <div class="site-brand">
+    <div class="container">
+      <h1 class="site-title">
+        <a class="site-title-link" href="/.">
+          JIE'S BLOG
+        </a>
+      </h1>
+    </div>
+  </div>
+  <nav class="site-nav">
+    <div class="container">
+      <ul class="site-nav-menu">
+        
+          
+          
+          <li class="site-nav-item">
+            <a class="site-nav-link " href="/">
+              
+              
+                首页
+              
+            </a>
+          </li>
+        
+          
+          
+          <li class="site-nav-item">
+            <a class="site-nav-link " href="/categories/thinking/">
+              
+              
+                思考
+              
+            </a>
+          </li>
+        
+          
+          
+          <li class="site-nav-item">
+            <a class="site-nav-link " href="/categories/life/">
+              
+              
+                生活
+              
+            </a>
+          </li>
+        
+          
+          
+          <li class="site-nav-item">
+            <a class="site-nav-link " href="/archives/">
+              
+              
+                归档
+              
+            </a>
+          </li>
+        
+          
+          
+          <li class="site-nav-item">
+            <a class="site-nav-link " href="/about/">
+              
+              
+                关于
+              
+            </a>
+          </li>
+        
+      </ul>
+      <div class="site-nav-icon">
+        <a class="site-icon-link" href="/atom.xml">
+          <i class="fa fa-rss"></i>
+        </a>
+        
+          <a class="site-icon-link" href="https://github.com/">
+            <i class="fa fa-github"></i>
+          </a>
+        
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <div class="content">
+      <div class="container">
+  <main class="main">
+    <article class="article">
+  <header class="article-header">
+    <div class="article-meta">
+  <div class="article-date">
+    Jul 27, 2017
+  </div>
+  <div class="article-categories">
+    <i class="fa fa-caret-right"></i>
+    
+  </div>
+</div>
+
+    <h2 class="article-title">
+  
+    js 的浏览器兼容
+  
+</h2>
+
+  </header>
+  <div class="article-body markdown">
+    
+    
+      <p><code>js</code>的兼容总结</p>
+<h5 id="getElementsByClassName"><a href="#getElementsByClassName" class="headerlink" title="getElementsByClassName"></a>getElementsByClassName</h5><p>getElementsByClassName()方法在几个重要的浏览器中支持的最低版本:</p>
+<table>
+<thead>
+<tr>
+<th>浏览器</th>
+<th>最低版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>谷歌</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>IE</td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>火狐</td>
+<td>3.0</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//兼容写法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getClassName</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(!name) <span class="keyword">return</span> []</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">document</span>.getElementsByClassName(name))&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">document</span>.getElementsByClassName(name)</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">var</span> all = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"*"</span>),</div><div class="line">        arr = [];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; all.length; i++)&#123;</div><div class="line">            <span class="keyword">if</span>(all[i].className = name)&#123;</div><div class="line">               arr.push(all[i])</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> arr</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="事件的绑定"><a href="#事件的绑定" class="headerlink" title="事件的绑定"></a>事件的绑定</h5><p>兼容写法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * event 跨浏览器兼容写法</div><div class="line"> * @method addEvent</div><div class="line"> * @param  &#123;[HTMLCollection]&#125;   obj  [HTMLCollection对象]</div><div class="line"> * @param  &#123;[string]&#125;   type [事件类型]</div><div class="line"> * @param  &#123;Function&#125; fn   回调</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">obj,type,fn</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj.addEventListener != <span class="string">'undefined'</span>) &#123;</div><div class="line">        <span class="keyword">return</span> obj.addEventListener(type,fn,<span class="literal">false</span>);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> obj.attachEvent != <span class="string">'undefined'</span>)&#123;</div><div class="line">        retrun obj.attachEvent(<span class="string">"on"</span> + type, fn);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="event事件对象"><a href="#event事件对象" class="headerlink" title="event事件对象"></a>event事件对象</h5><p>关于获取鼠标坐标的详解参考<a href="http://www.cnblogs.com/mmzuo-798/p/5533439.html" target="_blank" rel="external">link</a> <a href="http://blog.csdn.net/lzding/article/details/45437707" target="_blank" rel="external">link2</a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.onclick =  <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> event = evt || <span class="built_in">window</span>.event;</div><div class="line">    <span class="built_in">console</span>.log(event.clientX)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+    
+  </div>
+  
+    <footer class="article-footer">
+      <div class="article-tags">
+  
+    <a class="article-tag" href="/tags/js兼容/">
+      <i class="fa fa-tag"></i>
+      js兼容
+    </a>
+  
+</div>
+
+      
+  <div class="article-pagination">
+    
+      <div class="next-article">
+        <a class="article-link" href="/2017/07/25/git-command/">
+          <span class="hint">
+            <i class="fa fa-chevron-left"></i>
+            旧文章
+          </span>
+          <span class="title">git常用命令</span>
+        </a>
+      </div>
+    
+    
+      <div class="prev-article">
+        <a class="article-link" href="/2017/07/28/js-this/">
+          <span class="hint">
+            新文章
+            <i class="fa fa-chevron-right"></i>
+          </span>
+          <span class="title">js中this的指向问题</span>
+        </a>
+      </div>
+    
+  </div>
+
+
+    </footer>
+  
+</article>
+
+    
+  <div id="disqus_thread">
+    <noscript>
+      Please enable JavaScript to view the
+      <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+  <script id="disqus">
+    var disqus_config = function () {
+        this.page.url = 'https://blog.h5per.com/2017/07/27/js-hack/';
+        this.page.identifier = '2017/07/27/js-hack/';
+        this.page.title = 'js 的浏览器兼容';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+      s.src = '//blog-at9hvwkza8.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+  </main>
+  <aside class="sidebar">
+  
+    
+  <div class="widget recent">
+    <h3 class="widget-title">最新文章</h3>
+    <ul class="recent-post">
+      
+        <li class="recent-post-item">
+          <a class="recent-post-link" href="/2017/08/10/vuejs-webpack-svgstore-plugin/">
+            vuejs&amp;&amp;webpack-svgstore-plugin
+          </a>
+        </li>
+      
+        <li class="recent-post-item">
+          <a class="recent-post-link" href="/2017/07/28/js-this/">
+            js中this的指向问题
+          </a>
+        </li>
+      
+        <li class="recent-post-item">
+          <a class="recent-post-link" href="/2017/07/27/js-hack/">
+            js 的浏览器兼容
+          </a>
+        </li>
+      
+        <li class="recent-post-item">
+          <a class="recent-post-link" href="/2017/07/25/git-command/">
+            git常用命令
+          </a>
+        </li>
+      
+        <li class="recent-post-item">
+          <a class="recent-post-link" href="/2017/07/25/hexo/">
+            hexo 安装指南
+          </a>
+        </li>
+      
+        <li class="recent-post-item">
+          <a class="recent-post-link" href="/2017/07/25/es6/">
+            es6 学习笔记
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+  
+    
+  <div class="widget tagcloud">
+    <h3 class="widget-title">
+      标签云
+    </h3>
+    <div class="tagcloud-wrapper">
+      <a href="/tags/es6/" style="font-size: 16px;">es6</a> <a href="/tags/git/" style="font-size: 16px;">git</a> <a href="/tags/hexo/" style="font-size: 16px;">hexo</a> <a href="/tags/this/" style="font-size: 16px;">this</a> <a href="/tags/js兼容/" style="font-size: 16px;">js兼容</a> <a href="/tags/vue-webpack-svg/" style="font-size: 16px;">vue webpack svg</a>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    <div class="widget links">
+  <h3 class="widget-title">
+    友情链接
+  </h3>
+  <ul class="link-list">
+    
+      <li class="link-list-item">
+        <a class="link-list-link" href="http://www.yzz1995.cn/">
+          yzzting
+        </a>
+      </li>
+    
+      <li class="link-list-item">
+        <a class="link-list-link" href="http://blog.co1mugx.tk/">
+          co1mugx
+        </a>
+      </li>
+    
+      <li class="link-list-item">
+        <a class="link-list-link" href="https://www.ileyar.com/">
+          leyar
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+  
+</aside>
+
+</div>
+
+    </div>
+    <footer class="footer">
+  <div class="container">
+    <p class="copyright">
+      
+      Copyright &copy; 2017. All Rights Reserved.
+    </p>
+    <p class="power-by">
+      Power by <a href="https://hexo.io/">Hexo</a> and Theme by <a href="https://github.com/ahonn/hexo-theme-hello">Hello</a>.
+    </p>
+  </div>
+</footer>
+
+
+    <!-- 导入百度站点链接推送 开始  -->
+    <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>
+    <!-- 导入百度站点链接推送 结束 -->
+
+
+</body>
+</html>

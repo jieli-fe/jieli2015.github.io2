@@ -1,0 +1,53 @@
+# Site Information
+description: "记录成长，分享生活与技术的点滴"
+keywords: "jie的技术博客"
+favicon: img/js.png
+rss: /atom.xml
+
+# Site Menu
+# Neet slash(/) at the end
+menu:
+  home: /
+  # 技术: categories/technology/ 
+  思考: categories/thinking/
+  生活: categories/life/
+  archives: archives/
+  about: about/
+
+# Site Sidebar Widget
+widgets:
+  - recent_post
+  - tagcloud
+  - categories
+  # - archives
+  - links
+  
+# 百度站点页面主动提交
+baidusite: true
+
+# Site Friend Links
+links:
+  yzzting: http://www.yzz1995.cn/
+  co1mugx: http://blog.co1mugx.tk/
+  leyar: https://www.ileyar.com/
+
+social:
+  github: https://github.com/
+
+analytics:
+  google: UA-103011725-1
+  baidu: 3a2513e3b95bfa8932590de2c4476f65
+
+# Site Verification
+verification:
+  baidu: u8dgxVVR7o
+  google: 
+
+comment:
+  disqus: blog-at9hvwkza8
+  
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
