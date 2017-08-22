@@ -42,13 +42,13 @@
 <meta property="og:site_name" content="JIE&#39;S BLOG">
 <meta property="og:description" content="vuejs 使用svgsprite做icon的配置首先看官网 安装1npm i webpack-svgstore-plugin --save-dev">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-10T14:05:42.000Z">
+<meta property="og:updated_time" content="2017-08-22T02:10:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vuejs&amp;&amp;webpack-svgstore-plugin">
 <meta name="twitter:description" content="vuejs 使用svgsprite做icon的配置首先看官网 安装1npm i webpack-svgstore-plugin --save-dev">
 
-<link rel="stylesheet" href="/css/font-awesome.css?t=1502612129921">
-<link rel="stylesheet" href="/css/style.css?t=1502612129921">
+<link rel="stylesheet" href="/css/font-awesome.css?t=1503368363628">
+<link rel="stylesheet" href="/css/style.css?t=1503368363628">
 
 
 <script id="google_analytics">
@@ -216,19 +216,19 @@
 <li>Use webpack-svgstore-plugin@3.x.x for Webpack 1.x.x</li>
 <li>Use webpack-svgstore-plugin@4.x.x for Webpack 2.x.x</li>
 </ul>
-<h5 id="怎么使用？？"><a href="#怎么使用？？" class="headerlink" title="怎么使用？？"></a>怎么使用？？</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//webpack.config.js</span></div><div class="line"><span class="keyword">var</span> SvgStore = <span class="built_in">require</span>(<span class="string">'webpack-svgstore-plugin'</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">plugins</span>: [</div><div class="line">    <span class="comment">// create svgStore instance object</span></div><div class="line">    <span class="keyword">new</span> SvgStore(&#123;</div><div class="line">      <span class="comment">// svgo options</span></div><div class="line">      svgoOptions: &#123;</div><div class="line">        <span class="attr">plugins</span>: [</div><div class="line">          &#123; <span class="attr">removeTitle</span>: <span class="literal">true</span> &#125;</div><div class="line">        ]</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">prefix</span>: <span class="string">'icon'</span></div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="怎么使用？？"><a href="#怎么使用？？" class="headerlink" title="怎么使用？？"></a>怎么使用？？</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//webpack.config.js</span></div><div class="line"><span class="keyword">var</span> SvgStore = <span class="built_in">require</span>(<span class="string">'webpack-svgstore-plugin'</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  plugins: [</div><div class="line">    <span class="comment">// create svgStore instance object</span></div><div class="line">    <span class="keyword">new</span> SvgStore(&#123;</div><div class="line">      <span class="comment">// svgo options</span></div><div class="line">      svgoOptions: &#123;</div><div class="line">        plugins: [</div><div class="line">          &#123; <span class="attr">removeTitle</span>: <span class="literal">true</span> &#125;</div><div class="line">        ]</div><div class="line">      &#125;,</div><div class="line">      prefix: <span class="string">'icon'</span></div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ol>
 <li><p>导入svg plugin</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> SvgStore = <span class="built_in">require</span>(<span class="string">'webpack-svgstore-plugin'</span>);</div></pre></td></tr></table></figure>
 </li>
 <li><p>创建实例对象</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> SvgStore(&#123;</div><div class="line">  <span class="comment">// svgo options</span></div><div class="line">  svgoOptions: &#123;</div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">      &#123; <span class="attr">removeTitle</span>: <span class="literal">true</span> &#125;</div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">prefix</span>: <span class="string">'icon'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> SvgStore(&#123;</div><div class="line">  <span class="comment">// svgo options</span></div><div class="line">  svgoOptions: &#123;</div><div class="line">    plugins: [</div><div class="line">      &#123; <span class="attr">removeTitle</span>: <span class="literal">true</span> &#125;</div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  prefix: <span class="string">'icon'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
 <li><p>导入svgRtore<br>注意下路径， path是存放svg目录， name是导出的svg路径和名称。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> __svg__           = &#123; <span class="attr">path</span>: <span class="string">'./assets/svg/**/*.svg'</span>, <span class="attr">name</span>: <span class="string">'assets/svg/[hash].logos.svg'</span> &#125;;</div><div class="line"><span class="built_in">require</span>(<span class="string">'webpack-svgstore-plugin/src/helpers/svgxhr'</span>)(__svg__);</div></pre></td></tr></table></figure>
 </li>
 <li><p>使用<br>在vuejs中的template中使用</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;svg style='font-size: 12px'&gt;</div><div class="line">    &lt;use :xlink:href="#icon-add"&gt;&lt;/use&gt;</div><div class="line">  &lt;/svg&gt;</div><div class="line">&lt;<span class="regexp">/template&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;svg style=<span class="string">'font-size: 12px'</span>&gt;</div><div class="line">    &lt;use :xlink:href=<span class="string">"#icon-add"</span>&gt;&lt;/use&gt;</div><div class="line">  &lt;<span class="regexp">/svg&gt;</span></div><div class="line"><span class="regexp">&lt;/</span>template&gt;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><p>assets 文件夹内的svg <code>请统一小写命名</code></p>
@@ -347,7 +347,7 @@
       标签云
     </h3>
     <div class="tagcloud-wrapper">
-      <a href="/tags/es6/" style="font-size: 16px;">es6</a> <a href="/tags/git/" style="font-size: 16px;">git</a> <a href="/tags/hexo/" style="font-size: 16px;">hexo</a> <a href="/tags/this/" style="font-size: 16px;">this</a> <a href="/tags/js兼容/" style="font-size: 16px;">js兼容</a> <a href="/tags/vue-webpack-svg/" style="font-size: 16px;">vue webpack svg</a>
+      <a href="/tags/hexo/" style="font-size: 16px;">hexo</a> <a href="/tags/es6/" style="font-size: 16px;">es6</a> <a href="/tags/git/" style="font-size: 16px;">git</a> <a href="/tags/js兼容/" style="font-size: 16px;">js兼容</a> <a href="/tags/this/" style="font-size: 16px;">this</a> <a href="/tags/vue-webpack-svg/" style="font-size: 16px;">vue webpack svg</a>
     </div>
   </div>
 
